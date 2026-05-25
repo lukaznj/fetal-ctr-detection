@@ -126,7 +126,11 @@ To ensure a fair and scientifically rigorous comparison, both evaluation pipelin
 
 ### 1. Cardiothoracic Ratio (CTR)
 The CTR represents the ratio of the major axis of the cardiac ellipse to that of the thoracic ellipse:
-$$\text{CTR}_{\text{auto}} = \frac{a_{\text{cardiac}}}{a_{\text{thorax}}}$$
+
+$$
+\text{CTR}_{\text{auto}} = \frac{a_{\text{cardiac}}}{a_{\text{thorax}}}
+$$
+
 *   **AbsErr (Absolute Error) / MAE:** The absolute distance between $\text{CTR}_{\text{auto}}$ and the clinician's manual ground truth $\text{CTR}_{\text{GT}}$.
 
 ### 2. Spatial Metrics (IoU)
@@ -134,7 +138,10 @@ $$\text{CTR}_{\text{auto}} = \frac{a_{\text{cardiac}}}{a_{\text{thorax}}}$$
 
 ### 3. Combined Error Metric ($E$)
 To prevent mathematical flukes, we define a comprehensive **Combined Error** ($E \in [0, 1]$) representing a weighted sum of five bounded geometric parameters (lower is better):
-$$E = 0.40 \cdot e_{\text{ctr}} + 0.25 \cdot (1 - \text{IoU}_{\text{mean}}) + 0.15 \cdot e_{\text{centroid}} + 0.10 \cdot e_{\text{axis}} + 0.10 \cdot e_{\text{angle}}$$
+
+$$
+E = 0.40 \cdot e_{\text{ctr}} + 0.25 \cdot (1 - \text{IoU}_{\text{mean}}) + 0.15 \cdot e_{\text{centroid}} + 0.10 \cdot e_{\text{axis}} + 0.10 \cdot e_{\text{angle}}
+$$
 
 Where:
 *   **`e_ctr` (MRE, 40%):** Relative deviation of the calculated CTR (most important clinical measure).
